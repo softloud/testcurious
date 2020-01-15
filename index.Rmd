@@ -3,6 +3,12 @@ title: "test::curious"
 description: |
   unit testing for code::proof in data analysis
 site: distill::distill_website
+author:
+  - name: "Charles T. Gray"
+    url: https://softloud.github.io/onetimetrophybitch/about.html
+    affiliation: Interdisciplinary Metaresearch Group, University of Melbourne
+    affiliation_url: https://imerg.info/
+    
 ---
 
 ```{r setup, include=FALSE}
@@ -13,3 +19,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
+The plan is to develop this seminar into a workshop.

@@ -7,8 +7,6 @@ navbar:
   right:
     - text: "testcurious"
       href: index.html
-    - text: "about"
-      href: about.html
     - text: "neet tests"
       href: talks/neet/neet.html
 output: distill::distill_article
