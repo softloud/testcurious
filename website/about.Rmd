@@ -1,0 +1,11 @@
+---
+title: "about"
+description: |
+  where Charles is developing testing resources 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This is currently a seminar, but will likely extend into a workshop. 

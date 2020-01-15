@@ -1,0 +1,148 @@
+---
+title: "test::curious"
+subtitle: neet testing in research data science
+author: Charles T. Gray </br> Interdisciplinary Metaresearch Group </br> School of History and Phisolophy of Science </br> University of Melbourne
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE
+  )
+```
+
+# *I'm* not checking your *code*! 
+
+<div class="notes">
+- How do you know I have?
+- How do I know I have?
+- Hubris to think our code is perfect
+</div>
+
+# test-driven research software engineering
+
+<div class="notes">
+We don't need to reinvent the wheel.
+</div>
+
+## research software engineering
+
+<div class="notes">
+Unit tests are one of many things that make up RSE
+</div>
+
+todo: get off the twitters
+
+- **unit tests**
+- containerisation
+
+## research software engineering
+
+<div class="notes">
+Why are people adopting these tools?
+</div>
+
+### **containerisation**
+
+todo: get Mark's thing off twitter
+
+### **unit tests**
+
+'I started using automated tests because I discovered I was spending too much time re-fixing bugs that I’d already fixed before.' - Testing, R Packages, Wickham 2015
+
+## unit tests {.smaller}
+
+<div class="notes">
+Describe each of the three testing objects in relation to the example
+</div>
+ 
+```{r eval=FALSE, echo=TRUE}
+context("String length")
+library(stringr)
+
+test_that("str_length is number of characters", {
+  expect_equal(str_length("a"), 1)
+  expect_equal(str_length("ab"), 2)
+  expect_equal(str_length("abc"), 3)
+})
+
+test_that("str_length of factor is length of level", {
+  expect_equal(str_length(factor("a")), 1)
+  expect_equal(str_length(factor("ab")), 2)
+  expect_equal(str_length(factor("abc")), 3)
+})
+```
+
+testing object | description | function
+- | - | -
+**expectation** | atom of testing | `expect_*`
+**test** | a collection of expectations | `test_that`
+**context** | a collection of tests | `context`
+
+
+# unit tests in data science | testing the good, the bad, and the ugly
+
+
+<div class="notes">
+Now we consider what we want to test in the context of data analysis
+</div>
+
+
+## testing the good | testing the good, the bad, and the ugly
+
+<div class="notes">
+Test for good inputs. Log expects a positive number.
+</div>
+
+
+```{r}
+# test for fixed positive number
+log(3)
+
+# test for random positive number
+x <- rexp(1)
+
+# the exponential distribution only produces positive numbers
+
+log(x)
+
+```
+
+
+## testing the bad| testing the good, the bad, and the ugly {.smaller}
+
+<div class="notes">
+Test for bad inputs. What if there's a numeric input, so expected type, but it's negative, so log doesn't work?
+</div>
+
+
+```{r}
+# test for fixed negative number
+log(-3)
+
+# test for random netgative number
+x <- -rexp(1)
+
+# the exponential distribution only produces positive numbers
+
+log(x)
+
+```
+
+## testing the ugly | testing the good, the bad, and the ugly
+
+<div class="notes">
+What about a non-numeric input, which is nonsense. We want it to fail & give informative errors.
+</div>
+
+
+```{r error = TRUE}
+# test for ugly string input
+log("pig")
+
+# test for random string input
+x <- c("cat", "pig", "bird") %>% sample(1)
+
+log(x)
+
+```
