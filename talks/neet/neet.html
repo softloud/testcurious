@@ -3186,7 +3186,7 @@ slide:not(.current) .plotly.html-widget{
 
 <p>&lsquo;I started using automated tests because I discovered I was spending too much time re-fixing bugs that I’d already fixed before.&rsquo; - Testing, R Packages, Wickham 2015</p>
 
-</article></slide><slide class=""><hgroup><h2>unit tests</h2></hgroup><article  id="unit-tests-1" class="smaller">
+</article></slide><slide class=""><hgroup><h2>unit tests</h2></hgroup><article  class="smaller" id="unit-tests-1">
 
 <aside class='note'><section><p>Describe each of the three testing objects in relation to the example</p></section></aside>
 
@@ -3248,9 +3248,9 @@ x &lt;- rexp(1)
 
 log(x)</pre>
 
-<pre >## [1] -0.04419743</pre>
+<pre >## [1] -1.513271</pre>
 
-</article></slide><slide class=""><hgroup><h2>testing the bad</h2><h3> testing the good, the bad, and the ugly</h3></hgroup><article  id="testing-the-bad-testing-the-good-the-bad-and-the-ugly" class="smaller">
+</article></slide><slide class=""><hgroup><h2>testing the bad</h2><h3> testing the good, the bad, and the ugly</h3></hgroup><article  class="smaller" id="testing-the-bad-testing-the-good-the-bad-and-the-ugly">
 
 <aside class='note'><section><p>Test for bad inputs. What if there’s a numeric input, so expected type, but it’s negative, so log doesn’t work?</p></section></aside>
 
@@ -3286,7 +3286,26 @@ x &lt;- c(&quot;cat&quot;, &quot;pig&quot;, &quot;bird&quot;) %&gt;% sample(1)
 
 log(x)</pre>
 
-<pre >## Error in log(x): non-numeric argument to mathematical function</pre></article></slide>
+<pre >## Error in log(x): non-numeric argument to mathematical function</pre>
+
+</article></slide><slide class=""><hgroup><h2>test-driven development </h2><h3> balancing development with a measure of code::proof</h3></hgroup><article  id="test-driven-development-balancing-development-with-a-measure-of-codeproof">
+
+<p>todo: poster for the good the bad and the ugly</p>
+
+<p>A <strong>neet test</strong> checks the function outputs a <strong>non-empty</strong> thing of <strong>expected type</strong></p>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>neet tests </h2><h3> a measure of sanity in building a data analysis</h3></hgroup><article  id="neet-tests-a-measure-of-sanity-in-building-a-data-analysis">
+
+</article></slide><slide class=""><hgroup><h2>neet test workflow</h2></hgroup><article  id="neet-test-workflow">
+
+<h3>set up</h3>
+
+<ol>
+<li>make a function</li>
+<li>check in console it outputs a non-empty thing of expected type</li>
+<li>convert this check into a test</li>
+<li>run test</li>
+</ol></article></slide>
 
 
   <slide class="backdrop"></slide>

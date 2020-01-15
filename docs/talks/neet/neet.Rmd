@@ -163,3 +163,5 @@ A **neet test** checks the function outputs a **non-empty** thing of **expected 
 2. check in console it outputs a non-empty thing of expected type
 3. convert this check into a test 
 4. run test
+
+

@@ -2,7 +2,7 @@ name: "test::curious"
 title: "test::curious"
 description: |
   unit testing for code::proof in data analysis
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   right:
     - text: "testcurious"
