@@ -164,4 +164,10 @@ A **neet test** checks the function outputs a **non-empty** thing of **expected 
 3. convert this check into a test 
 4. run test
 
+```{r eval=FALSE}
+usethis::use_testthat()
+
+
+```
+
 
