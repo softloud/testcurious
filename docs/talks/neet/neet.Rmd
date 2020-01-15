@@ -290,7 +290,7 @@ panda("what is a minimal development test?", panda = 68)
 ## acknowledgements
 
 ```{r echo=FALSE}
-panda::panda("Thank you to Greg Wilson and Alex Hayes for enlightening chats about testing.")
+panda::panda("Thank you to Adam Steer, Ben Listyg, Mark Greenaway, Greg Wilson, and Alex Hayes for enlightening chats about testing.")
 ```
 
 
