@@ -1,7 +1,8 @@
 ---
 title: "test::curious"
+bibliography: references.bib
 subtitle: neet testing in research data science
-author: Charles T. Gray </br> Interdisciplinary Metaresearch Group </br> School of History and Phisolophy of Science </br> University of Melbourne
+author: Charles T. Gray </br> Interdisciplinary Metaresearch Group </br> School of History and Philosophy of Science </br> University of Melbourne
 output: ioslides_presentation
 ---
 
@@ -31,8 +32,10 @@ We don't need to reinvent the wheel.
 Unit tests are one of many things that make up RSE
 </div>
 
-todo: get off the twitters
-
+- reproducible resaerch compendia
+- packaged analysis tools
+- modular functions over scripts
+- dynamic and html-based reporting
 - **unit tests**
 - containerisation
 
@@ -44,18 +47,18 @@ Why are people adopting these tools?
 
 ### **containerisation**
 
-todo: get Mark's thing off twitter
+<blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">Not minor. I&#39;ve spent almost an equal amount of time fixing those issues in the past couple of years as I have actually developing code. Containerization freed me from caring about the state of everyone else&#39;s laptop, and allowed me to get back to work.</p>&mdash; Dr Mark Greenaway (\@certifiedwaif) <a href="https://twitter.com/certifiedwaif/status/1217244830801125376?ref_src=twsrc%5Etfw">January 15, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 ### **unit tests**
 
-'I started using automated tests because I discovered I was spending too much time re-fixing bugs that I’d already fixed before.' - Testing, R Packages, Wickham 2015
+'I started using automated tests because I discovered I was spending too much time re-fixing bugs that I’d already fixed before.' - from Testing in *R Packages* [@wickham_r_2015]
 
 ## unit tests {.smaller}
 
 <div class="notes">
 Describe each of the three testing objects in relation to the example
 </div>
- 
+
 ```{r eval=FALSE, echo=TRUE}
 context("String length")
 library(stringr)
@@ -108,7 +111,6 @@ log(x)
 
 ```
 
-
 ## testing the bad| testing the good, the bad, and the ugly {.smaller}
 
 <div class="notes">
@@ -149,25 +151,147 @@ log(x)
 
 ## test-driven development | balancing development with a measure of code::proof
 
-todo: poster for the good the bad and the ugly
+<div class="notes">
+Perhaps we only need to test the good in development.
+
+What is a minimal development test?
+</div>
+
+
+<div class="columns-2">
+
+```{r echo=FALSE}
+# image source, wikipedia
+knitr::include_graphics("Good_the_bad_and_the_ugly_poster.jpg")
+```
+
+*minimal development test*
 
 A **neet test** checks the function outputs a **non-empty** thing of **expected type**
+
+</div>
 
 # neet tests | a measure of sanity in building a data analysis
 
 ## neet test workflow
-
-### set up
 
 1. make a function
 2. check in console it outputs a non-empty thing of expected type
 3. convert this check into a test 
 4. run test
 
+## getting set up 
+
 ```{r eval=FALSE}
+# make a package in rstudio
+usethis::create_package()
+
+# set up testing in rstudio package
 usethis::use_testthat()
 
+# create a context file
+usethis::use_test()
+
+# add context to first line of context file
+context("what these tests test")
+```
+
+## example neet test | quack, quack, said the duck! {.smaller}
+
+<div class="notes">
+1. Explain structure and function.
+2. Update the neet test for the greeting.
+</div>
+
+<div class="columns-2">
+
+#### function
+
+```{r }
+quack <-
+  function(says_the_duck = "quack!", 
+           greeting = "quack! ") {
+    paste0(greeting, 
+           says_the_duck, 
+           " said the duck")
+  }
+
+```
+
+```{r}
+quack()
+quack("quack, quack!")
 
 ```
 
 
+#### test
+
+```{r eval=FALSE}
+context("test that the duck quacks")
+library(stringr)
+
+expect_neet_quack <-
+  function(quack_output) {
+    expect_gte(
+      str_length(quack_output), 
+      1)
+    expect_type(quack_output, 
+                "character")
+  }
+
+test_that("duck quacks", {
+  expect_neet_quack(quack())
+  expect_neet_quack(
+    quack("quack, quack!"))
+})
+
+```
+
+</div>
+
+## example neet test | repliCATS {.smaller}
+
+```{r eval=FALSE}
+context("nas nans infs in confidence scores")
+
+
+method_nans <- function(method_to_test) {
+  cs <-
+    expert_judgements_frankenstein %>%
+    method_to_test() %>%
+    purrr::pluck("cs")
+
+  expect_false(NA %in% cs)
+  expect_false(NaN %in% cs)
+  expect_false(Inf %in% cs)
+  expect_false(-Inf %in% cs)
+  expect_false(any(cs < 0))
+  expect_false(any(cs > 1))
+  expect_false(any(cs == 0))
+  expect_false(any(cs == 1))
+  expect_is(cs, "numeric")
+}
+```
+
+## minimal tests
+
+<div class="notes">
+
+</div>
+
+
+```{r, echo=FALSE}
+panda("what is a minimal development test?", panda = 68)
+```
+
+# coda
+
+## acknowledgements
+
+```{r echo=FALSE}
+panda::panda("Thank you to Greg Wilson and Alex Hayes for enlightening chats about testing.")
+```
+
+
+## references
