@@ -172,7 +172,7 @@ When developing, we won't test the good, the bad, and the ugly.
 A **neet test** checks the function outputs a **non-empty** thing of **expected type**.
 </div>
 
-# neet tests | a measure of code::proof in data analysis
+# neet tests | a measure of code::proof in data analysis [@grayCodeProofPrepare2019]
 
 ## neet test workflow
 
