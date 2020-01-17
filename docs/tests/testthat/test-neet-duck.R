@@ -8,4 +8,6 @@ expect_neet_quack <- function(quack_output) {
 test_that("duck quacks", {
   expect_neet_quack(quack())
   expect_neet_quack(quack("quack, quack!"))
+  expect_neet_quack(quack(greeting = "I am a duck."))
+  expect_neet_quack(quack(Inf))
 })
