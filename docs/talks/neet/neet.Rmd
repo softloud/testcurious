@@ -2,7 +2,8 @@
 title: "test::curious"
 bibliography: references.bib
 subtitle: neet testing in research data science
-author: Charles T. Gray </br> Reproducibility Team, The repliCATS Project, SCORE program </br> Interdisciplinary Metaresearch Group </br> School of History and Philosophy of Science </br> University of Melbourne
+author: Charles T. Gray </br> Reproducibility Team, [The repliCATS Project](https://replicats.research.unimelb.edu.au/), SCORE program </br> [Interdisciplinary Metaresearch Group](https://imerg.info/) </br> School of History and Philosophy of Science </br> University of Melbourne
+#[Charles](https://softloud.github.io/onetimetrophybitch/) T. Gray </br> Reproducibility Team, [The repliCATS Project](https://replicats.research.unimelb.edu.au/), [SCORE program](https://www.vox.com/science-and-health/2019/2/25/18211125/darpa-score-center-for-open-science-ai) </br> # [Interdisciplinary Metaresearch Group] #(https://imerg.info/) </br> School of History and Philosophy of Science </br> University of Melbourne
 output: ioslides_presentation
 ---
 
